@@ -22,15 +22,18 @@ description: "Send one video prompt through the separate Muse Chrome. The comman
 
 ## Rules
 
-- Run `muse-tab send`. Do not open muse.ai in any browser yourself.
+- Call the MCP tool `send` from the `muse-tab` server. Do not open muse.ai yourself and do not run a shell command when that tool is listed.
+- If `send` is not in the tool list, run `muse-tab send --prompt "PROMPT" --download --wait 180 --json` once. Do not open a browser.
 - Never call `muse.ai` from Node, Python, or curl.
 - Never pass a flag that skips the VPN check.
 - Send at most once. If the result is uncertain, inspect the saved file. Do not send again.
 
+Call `send` with the prompt. `download` defaults to true and `wait` defaults to 180 seconds. The tool result is the CLI JSON. Exit text inside that JSON uses `ok: true` when the mp4 was saved.
+
+If the MCP tool is not listed, the same pipeline is:
+
 ```bash
 muse-tab send --prompt "PROMPT" --download --wait 180 --json
 ```
-
-Exit 0 means the new mp4 was saved. Exit 4 means no mp4 was saved before the wait ended. Exit 3 means the VPN route was not confirmed, so Muse was not left open.
 
 `--country CC` or `MUSE_TAB_COUNTRY` adds a required exit country. Use it only when the owner named a country.
