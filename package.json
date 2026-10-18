@@ -1,7 +1,7 @@
 {
-  "name": "muse-video-factory",
+  "name": "muse-video",
   "version": "1.0.0",
-  "description": "Send video prompts through a separate Muse Chrome window that keeps the VPN extension off the main profile.",
+  "description": "Generate one video through a separate Muse Chrome window. The VPN extension stays in that window, off the main profile.",
   "private": true,
   "type": "module",
   "bin": {
