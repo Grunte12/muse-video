@@ -1,0 +1,8 @@
+.DS_Store
+muse-out/
+*.mp4
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.webp
