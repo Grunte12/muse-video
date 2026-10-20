@@ -1,12 +1,12 @@
 {
-  "name": "muse-video",
+  "name": "muse-video-factory",
   "version": "1.0.0",
-  "description": "Generate one video through a separate Muse Chrome window. The VPN extension stays in that window, off the main profile.",
+  "description": "Send video prompts through a separate Muse Chrome window that keeps the VPN extension off the main profile.",
   "private": true,
   "type": "module",
   "bin": {
-    "muse-tab": "./bin/muse-tab.mjs",
-    "muse-tab-mcp": "./bin/muse-tab-mcp.mjs"
+    "muse-video": "./bin/muse-video.mjs",
+    "muse-video-mcp": "./bin/muse-video-mcp.mjs"
   },
   "engines": {
     "node": ">=22"

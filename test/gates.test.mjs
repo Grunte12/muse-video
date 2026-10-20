@@ -12,8 +12,8 @@ import {
   vpnGate,
 } from "../lib/gates.mjs";
 
-test("only the Muse Tab Chrome profile matches", () => {
-  const own = "/Users/example/.muse-tab/chrome";
+test("only the Muse Video Chrome profile matches", () => {
+  const own = "/Users/example/.muse-video/chrome";
   assert.equal(sameProfile(own, own), true);
   assert.equal(sameProfile(`${own}/`, own), true);
   assert.equal(sameProfile("/Users/example/other-chrome", own), false);
@@ -21,14 +21,14 @@ test("only the Muse Tab Chrome profile matches", () => {
 
 test("parses the local debugging Chrome and ignores helpers", () => {
   const main =
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --remote-debugging-address=127.0.0.1 --remote-debugging-port=9341 --user-data-dir=/Users/example/.muse-tab/chrome";
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome --remote-debugging-address=127.0.0.1 --remote-debugging-port=9341 --user-data-dir=/Users/example/.muse-video/chrome";
   assert.deepEqual(parseChromeCommand(main), {
     port: 9341,
-    dir: "/Users/example/.muse-tab/chrome",
+    dir: "/Users/example/.muse-video/chrome",
     addr: "127.0.0.1",
   });
   const helper =
-    "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Helper --remote-debugging-port=9341 --user-data-dir=/Users/example/.muse-tab/chrome";
+    "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Helper --remote-debugging-port=9341 --user-data-dir=/Users/example/.muse-video/chrome";
   assert.equal(parseChromeCommand(helper), null);
   assert.equal(debugHost("127.0.0.1"), "127.0.0.1");
   assert.equal(debugHost("8.8.8.8"), null);
